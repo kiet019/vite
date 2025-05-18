@@ -1,0 +1,176 @@
+/* Settings Panel Styles */
+
+.settings-overlay {
+  position: fixed; /* Changed from absolute to fixed to prevent scrolling issues */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Increased z-index to ensure it's above everything */
+  overflow: hidden; /* Prevent scrolling of the background */
+  touch-action: none; /* Prevent touch events on the background */
+}
+
+.settings-panel {
+  background-color: #2c2c2c;
+  border-radius: 12px;
+  padding: 0.75rem;
+  width: 85%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  max-height: 90vh; /* Increased from 80vh to 90vh */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  will-change: transform; /* Optimize for hardware acceleration */
+  transform: translateZ(0); /* Force hardware acceleration */
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden; /* Prevent rendering issues */
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* Remove tap highlight */
+}
+
+.settings-panel-header {
+  grid-column: 1 / -1;
+  margin-bottom: 0.25rem;
+}
+
+.settings-panel-footer {
+  grid-column: 1 / -1;
+  margin-top: 0.25rem;
+}
+
+.settings-panel h2 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  color: #fff;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.settings-group {
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.settings-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.settings-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #ddd;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.api-key-help, .setting-description {
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+.api-key-help a {
+  color: #4a9eff;
+  text-decoration: none;
+}
+
+.api-key-help a:hover {
+  text-decoration: underline;
+}
+
+.settings-group input,
+.settings-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.85rem;
+  max-width: 100%;
+  height: auto;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.settings-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem top 50%;
+  background-size: 0.65rem auto;
+  padding-right: 2rem;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.settings-actions button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  min-height: 32px;
+}
+
+.cancel-button {
+  background-color: transparent;
+  border: 1px solid #555;
+  color: #ddd;
+}
+
+.cancel-button:hover {
+  background-color: #333;
+}
+
+.save-button {
+  background-color: #4a5568;
+  border: none;
+  color: white;
+}
+
+.save-button:hover {
+  background-color: #5a6578;
+}
+
+/* Font preview styles */
+.font-preview-questrial {
+  font-family: var(--font-questrial);
+  padding: 0.3rem;
+  margin-top: 0.2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.font-preview-source-code-pro {
+  font-family: var(--font-source-code-pro);
+  padding: 0.3rem;
+  margin-top: 0.2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

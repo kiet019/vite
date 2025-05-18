@@ -1,0 +1,244 @@
+/* Login Component Styles */
+
+/* Login Styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-color, #242424);
+}
+
+.login-form {
+  background-color: var(--chatbot-bg, #1a1a1a);
+  padding: 2rem;
+  border-radius: var(--border-radius, 8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.login-form h2 {
+  margin: 0;
+  color: var(--header-text, #ffffff);
+  font-size: 1.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.language-switcher {
+  position: relative;
+}
+
+.language-switcher select {
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--border-radius, 8px);
+  border: 1px solid var(--settings-input-border, #444);
+  background-color: var(--settings-input-bg, #333);
+  color: var(--input-text, #fff);
+  font-size: 0.9rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 1.8rem;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.2rem;
+}
+
+.language-switcher select:focus {
+  outline: none;
+  border-color: var(--button-bg, #4a5568);
+  box-shadow: 0 0 0 2px rgba(74, 85, 104, 0.3);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--settings-label, #ddd);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: var(--border-radius, 8px);
+  border: 2px solid var(--settings-input-border, #444);
+  background-color: var(--settings-input-bg, #333);
+  color: var(--input-text, #fff);
+  font-size: 1rem;
+  box-sizing: border-box;
+  -webkit-appearance: none; /* Fix for iOS styling */
+  appearance: none;
+  /* Improve touch target size */
+  min-height: 44px;
+  /* Fix for Android keyboard issues */
+  transform: translateZ(0);
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--button-bg, #4a5568);
+  color: var(--button-text, white);
+  border: none;
+  border-radius: var(--border-radius, 8px);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
+  /* Improve touch target size */
+  min-height: 44px;
+  /* Fix for Android touch issues */
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  touch-action: manipulation;
+}
+
+.login-button:hover {
+  background-color: var(--button-hover, #5a6578);
+}
+
+.login-error {
+  color: #f87171;
+  background-color: rgba(220, 38, 38, 0.1);
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.login-tools {
+  margin-top: 1.5rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.proxy-checker-link {
+  display: inline-block;
+  padding: 0.8rem 1rem;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--accent-color, #3b82f6);
+  border: 1px solid var(--accent-color, #3b82f6);
+  border-radius: var(--border-radius, 8px);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.proxy-checker-link:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.login-help {
+  margin-top: 1.5rem;
+  color: var(--description-color, #aaa);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.login-help ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  text-align: center;
+}
+
+.login-help li {
+  margin-bottom: 0.25rem;
+}
+
+/* Light theme adjustments */
+.theme-light .login-tools {
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .proxy-checker-link {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.theme-light .proxy-checker-link:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Mobile responsiveness for language switcher */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 1.5rem;
+  }
+
+  .login-header {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .login-form h2 {
+    font-size: 1.1rem;
+    max-width: 60%;
+  }
+
+  .language-switcher {
+    flex-shrink: 0;
+  }
+
+  .language-switcher select {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.9rem;
+    min-width: 90px;
+  }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; /* Reduced gap */
+  color: var(--header-text, #ffffff);
+  font-size: 0.8rem; /* Smaller font size */
+  height: 36px; /* Fixed height to fit in header */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.logout-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--header-text, #ffffff);
+  opacity: 0.9;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem; /* Slightly increased padding */
+  border-radius: 4px;
+  font-size: 0.8rem; /* Slightly larger font size */
+  transition: all 0.2s;
+  height: 28px; /* Slightly taller */
+  line-height: 1; /* Ensure text is vertically centered */
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.logout-button:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+}

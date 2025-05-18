@@ -1,0 +1,122 @@
+/* Completely new slider design - pill-shaped with integrated handle */
+.header-font-size-slider {
+  display: flex !important;
+  align-items: center !important;
+  height: 26px !important;
+  box-sizing: border-box !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  padding: 0.25rem 0.6rem !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Base slider styles - completely flat design */
+.header-font-size-slider input[type="range"],
+.font-size-range-input {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 80px !important;
+  height: 8px !important; /* Taller track to accommodate the handle */
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 4px !important;
+  outline: none !important;
+  margin: 0 4px !important;
+  padding: 0 !important;
+  border: none !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+
+/* Create a gradient background that shows the value */
+.header-font-size-slider input[type="range"]::-webkit-slider-runnable-track,
+.font-size-range-input::-webkit-slider-runnable-track {
+  height: 8px !important;
+  border-radius: 4px !important;
+  background: linear-gradient(to right, #4a9eff 0%, #4a9eff var(--slider-value, 50%), rgba(255, 255, 255, 0.2) var(--slider-value, 50%), rgba(255, 255, 255, 0.2) 100%) !important;
+}
+
+/* WebKit thumb - make it the same height as the track */
+.header-font-size-slider input[type="range"]::-webkit-slider-thumb,
+.font-size-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 8px !important; /* Same as track height */
+  height: 8px !important; /* Same as track height */
+  border-radius: 4px !important; /* Same as track border-radius */
+  background: #ffffff !important; /* White dot */
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: 0 !important; /* Perfectly aligned with track */
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Firefox track */
+.header-font-size-slider input[type="range"]::-moz-range-track,
+.font-size-range-input::-moz-range-track {
+  height: 8px !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: none !important;
+}
+
+/* Firefox progress - shows the value */
+.header-font-size-slider input[type="range"]::-moz-range-progress,
+.font-size-range-input::-moz-range-progress {
+  height: 8px !important;
+  border-radius: 4px 0 0 4px !important;
+  background: #4a9eff !important;
+}
+
+/* Firefox thumb - make it the same height as the track */
+.header-font-size-slider input[type="range"]::-moz-range-thumb,
+.font-size-range-input::-moz-range-thumb {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 4px !important;
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Hover and focus states */
+.header-font-size-slider input[type="range"]:hover::-webkit-slider-runnable-track,
+.font-size-range-input:hover::-webkit-slider-runnable-track,
+.header-font-size-slider input[type="range"]:focus::-webkit-slider-runnable-track,
+.font-size-range-input:focus::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #5fb0ff 0%, #5fb0ff var(--slider-value, 50%), rgba(255, 255, 255, 0.3) var(--slider-value, 50%), rgba(255, 255, 255, 0.3) 100%) !important;
+}
+
+.header-font-size-slider input[type="range"]:hover::-moz-range-progress,
+.font-size-range-input:hover::-moz-range-progress,
+.header-font-size-slider input[type="range"]:focus::-moz-range-progress,
+.font-size-range-input:focus::-moz-range-progress {
+  background: #5fb0ff !important;
+}
+
+/* Active state (when being dragged) */
+.header-font-size-slider input[type="range"]:active::-webkit-slider-runnable-track,
+.font-size-range-input:active::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #3d8ae0 0%, #3d8ae0 var(--slider-value, 50%), rgba(255, 255, 255, 0.3) var(--slider-value, 50%), rgba(255, 255, 255, 0.3) 100%) !important;
+}
+
+.header-font-size-slider input[type="range"]:active::-moz-range-progress,
+.font-size-range-input:active::-moz-range-progress {
+  background: #3d8ae0 !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+  .header-font-size-slider {
+    padding: 0.2rem 0.5rem !important;
+    height: 24px !important;
+  }
+
+  .header-font-size-slider input[type="range"],
+  .font-size-range-input {
+    width: 60px !important; /* Narrower on mobile */
+  }
+}

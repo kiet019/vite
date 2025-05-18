@@ -1,0 +1,413 @@
+/* Chat Input and Voice Recorder Styles */
+
+.chat-input {
+  display: flex;
+  padding: 0.5rem 0.75rem; /* Reduced padding */
+  background-color: #2c2c2c;
+  border-top: 2px solid #333; /* More visible border */
+  align-items: center;
+  gap: 0.5rem; /* Reduced spacing between elements */
+  position: relative; /* Changed from sticky to fix Android Chrome issues */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Increased z-index to ensure it's above other elements */
+  flex-wrap: nowrap;
+  width: 100%;
+  will-change: transform; /* Optimize for hardware acceleration */
+  transform: translateZ(0); /* Force hardware acceleration */
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden; /* Prevent rendering issues */
+  -webkit-backface-visibility: hidden;
+  justify-content: space-between; /* Ensure proper spacing between input and buttons */
+}
+
+.chat-input input, .chat-input .chat-textarea {
+  flex: 1;
+  width: 100%;
+  padding: 0.5rem 0.75rem; /* Reduced padding */
+  border-radius: var(--border-radius);
+  border: 1px solid var(--input-border, #444); /* Use theme variable */
+  background-color: var(--input-bg, #333); /* Use theme variable */
+  color: var(--input-text, #fff); /* Use theme variable */
+  font-size: 16px; /* Prevent zoom on iOS */
+  min-width: 0; /* Prevent flex item from overflowing */
+  -webkit-appearance: none; /* Fix for some Android browsers */
+  appearance: none;
+  position: relative; /* Ensure proper stacking context */
+  z-index: 101; /* Higher than container */
+  touch-action: manipulation; /* Improve touch handling */
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* Remove tap highlight */
+  outline: none; /* Remove outline */
+  will-change: transform; /* Optimize for hardware acceleration */
+  transform: translateZ(0); /* Force hardware acceleration */
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden; /* Prevent rendering issues */
+  -webkit-backface-visibility: hidden;
+  max-width: calc(100% - 170px); /* Leave more space for wider buttons */
+}
+
+.send-button {
+  padding: 0.4rem 0.8rem; /* Increased horizontal padding for wider button */
+  background-color: #4a5568;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Consistent rounded corners */
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600; /* Bolder text */
+  font-size: 0.9rem; /* Smaller font size */
+  width: 70px; /* Fixed width for consistency with mic button */
+  height: 38px; /* Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 6px; /* Space between text and icon */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.send-button:hover:not(:disabled) {
+  background-color: #5a6578;
+  transform: translateY(-1px); /* Slight lift effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.send-button:active:not(:disabled) {
+  transform: translateY(0); /* Press effect */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Reduced shadow when pressed */
+}
+
+.send-button:disabled {
+  background-color: #3a3a3a;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none; /* No shadow when disabled */
+  opacity: 0.7; /* Slightly transparent when disabled */
+}
+
+/* Button Container Styles */
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Increased gap between buttons */
+  justify-content: flex-end; /* Ensure buttons are aligned to the right */
+  min-width: 160px; /* Increased minimum width for wider buttons */
+  flex-shrink: 0; /* Prevent container from shrinking */
+  order: 2; /* Ensure it comes after the input */
+}
+
+/* Voice Recorder Styles */
+.voice-recorder {
+  display: flex;
+  align-items: center;
+}
+
+.voice-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mic-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* Match send button spacing */
+  padding: 0.4rem 0.8rem; /* Match send button padding */
+  border-radius: 8px; /* Consistent rounded corners */
+  background-color: #4a5568; /* Match send button color */
+  border: none;
+  color: white; /* Match send button text color */
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600; /* Bolder text */
+  font-size: 0.9rem; /* Smaller font size */
+  width: 70px; /* Same width as send button for equal clickability */
+  height: 38px; /* Match send button height */
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  user-select: none; /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: manipulation; /* Optimize for touch */
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+.mic-text {
+  font-size: 0.9rem; /* Smaller font size */
+  font-weight: 600; /* Bolder text */
+  display: none; /* Hide text for a more compact design */
+}
+
+.mic-button:hover:not([aria-disabled="true"]) {
+  background-color: #5a6578; /* Match send button hover */
+  color: #fff;
+  transform: translateY(-1px); /* Slight lift effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.mic-button:active:not([aria-disabled="true"]) {
+  transform: translateY(0); /* Press effect */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Reduced shadow when pressed */
+}
+
+.mic-button[aria-disabled="true"] {
+  background-color: #3a3a3a; /* Match send button disabled */
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none; /* No shadow when disabled */
+  opacity: 0.7; /* Slightly transparent when disabled */
+}
+
+.mic-button.permission-denied {
+  background-color: var(--error-color);
+}
+
+/* Recording state for mic button */
+.mic-button.recording {
+  background-color: #ef4444;
+  color: white;
+  animation: pulse-bg 1.5s infinite;
+  width: 90px; /* Slightly wider to accommodate time but still consistent */
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px; /* Consistent with other buttons */
+  box-shadow: 0 1px 4px rgba(239, 68, 68, 0.4); /* Red-tinted shadow */
+}
+
+.recording-time-small {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+@keyframes pulse-bg {
+  0% {
+    background-color: #ef4444;
+  }
+  50% {
+    background-color: #b91c1c;
+  }
+  100% {
+    background-color: #ef4444;
+  }
+}
+
+.recording-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  background-color: #ef4444;
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: white;
+  min-width: 120px;
+}
+
+.recording-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.recording-time {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+}
+
+.volume-indicator {
+  flex: 1;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.volume-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--volume-level, 0%);
+  background-color: var(--volume-color, white);
+  border-radius: 3px;
+  transition: width 0.1s ease-out;
+}
+
+.stop-recording-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  width: 100%;
+  justify-content: center;
+}
+
+.recording-icon {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  animation: pulse 1.5s infinite;
+  margin-right: 2px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Auto-stop toggle button */
+.auto-stop-toggle {
+  background-color: transparent;
+  border: 1px solid var(--border-color, #4a5568);
+  border-radius: 16px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-color, white);
+}
+
+.auto-stop-toggle.enabled {
+  background-color: rgba(74, 85, 104, 0.2);
+  border-color: #4a5568;
+  color: white;
+}
+
+.auto-stop-toggle.disabled {
+  opacity: 0.7;
+}
+
+.auto-stop-text {
+  display: none;
+}
+
+/* Android-specific input fixes */
+.android-input {
+  /* Prevent zoom on focus */
+  font-size: 16px !important;
+  /* Ensure hardware acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Prevent rendering issues */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Improve touch handling */
+  touch-action: manipulation;
+  /* Remove tap highlight */
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  /* Ensure the input is always visible */
+  opacity: 1 !important;
+  /* Prevent text selection issues */
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Improve touch targets for Android */
+.mic-button {
+  min-width: 36px;
+  min-height: 36px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  /* Prevent double-tap zoom */
+  touch-action: none;
+  cursor: pointer;
+  /* Force hardware acceleration */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Prevent ghost clicks */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Textarea specific styles */
+.chat-textarea {
+  resize: none; /* Prevent manual resizing */
+  overflow-y: hidden; /* Hide scrollbar by default */
+  line-height: 1.5; /* Improve line spacing */
+  max-height: 120px; /* Increased maximum height */
+  min-height: 42px; /* Increased minimum height to reduce need for scrollbar */
+  font-family: inherit; /* Use the same font as the rest of the app */
+  padding-top: 0.7rem; /* Increased top padding for better text positioning */
+  padding-bottom: 0.7rem; /* Increased bottom padding for better text positioning */
+}
+
+/* Only show scrollbar when content exceeds two lines */
+.chat-textarea.multiline {
+  overflow-y: auto; /* Show scrollbar only for multiline content */
+}
+
+/* Custom scrollbar styles for WebKit browsers (Chrome, Safari, Edge) */
+.chat-textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-textarea::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.chat-textarea::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.chat-textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Light theme scrollbar styles */
+.theme-light .chat-textarea::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.theme-light .chat-textarea::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.theme-light .chat-textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox scrollbar styles */
+.chat-textarea {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+.theme-light .chat-textarea {
+  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}
+
+/* Make sure the textarea doesn't grow too large on mobile */
+@media (max-width: 480px) {
+  .chat-textarea {
+    max-height: 100px; /* Increased from 80px */
+    min-height: 38px; /* Slightly smaller on mobile */
+  }
+}

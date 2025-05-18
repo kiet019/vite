@@ -1,0 +1,83 @@
+/* Status Indicator Styles */
+
+.status-indicator-container {
+  position: fixed;
+  bottom: 80px; /* Position above the chat input */
+  right: 20px;
+  z-index: 1000;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.status-indicator {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fade-in 0.3s ease-out;
+  max-width: 200px;
+  text-align: center;
+}
+
+.status-indicator-icon {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4a9eff;
+  animation: pulse-status 1.5s infinite;
+}
+
+@keyframes pulse-status {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .status-indicator-container {
+    bottom: 70px;
+    right: 10px;
+  }
+  
+  .status-indicator {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark theme adjustments */
+.theme-dark .status-indicator {
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+/* Light theme adjustments */
+.theme-light .status-indicator {
+  background-color: rgba(60, 60, 60, 0.9);
+  color: white;
+}

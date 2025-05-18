@@ -1,0 +1,266 @@
+/* Tab Panel and Header Styles */
+.tab-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* fallback */
+  height: calc(var(--vh, 1vh) * 100); /* Use custom viewport height variable */
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100vh;
+  max-height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.unified-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--header-bg, #2c2c2c);
+  padding: 0 0.8rem 0 0;
+  border-bottom: 1px solid var(--border-color, #333);
+  height: 50px; /* Fixed height */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden; /* Prevent vertical scrolling */
+  -webkit-overflow-scrolling: touch;
+  max-height: 50px; /* Ensure it doesn't exceed the fixed height */
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.tab-button {
+  padding: 0 1rem; /* Reduced horizontal padding */
+  height: 50px; /* Match header height */
+  background-color: transparent;
+  border: none;
+  color: #aaa;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem; /* Slightly smaller font */
+  position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 70px; /* Reduced minimum width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+.tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+
+.tab-text {
+  display: flex;
+  align-items: center;
+}
+
+.tab-button:hover .tab-icon,
+.tab-button.active .tab-icon {
+  opacity: 1;
+}
+
+.tab-button:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-button.active {
+  color: #fff;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #3b82f6;
+}
+
+.tab-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Important for flexbox on mobile */
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Reduced gap */
+  padding-right: 0.8rem;
+  flex-shrink: 0;
+  height: 100%; /* Ensure it takes full height of header */
+}
+
+/* Header Font Size Slider - Complete Rewrite */
+.header-font-size-slider {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem; /* Further reduced spacing */
+  background-color: rgba(255, 255, 255, 0.2); /* More visible background */
+  padding: 0.25rem 0.6rem; /* Further reduced padding */
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Thinner border */
+  height: 26px; /* Further reduced height */
+  margin: auto 0; /* Center vertically in the header */
+  position: relative; /* For proper positioning */
+  box-sizing: border-box; /* Ensure padding is included in height */
+}
+
+/* Removed font-size-label */
+
+.font-size-icon {
+  color: #fff;
+  opacity: 0.9; /* Increased opacity for better visibility */
+  font-weight: bold;
+  padding: 0; /* Removed padding */
+  line-height: 1; /* Ensure proper vertical alignment */
+  display: inline-block; /* Better control over positioning */
+}
+
+.font-size-icon.small {
+  font-size: 0.75rem; /* Further reduced size */
+  position: relative; /* For fine-tuned positioning */
+  top: -1px; /* Slight vertical adjustment */
+}
+
+.font-size-icon.large {
+  font-size: 1rem; /* Further reduced size */
+  position: relative; /* For fine-tuned positioning */
+  top: -1px; /* Slight vertical adjustment */
+}
+
+.header-font-size-slider input[type="range"] {
+  width: 80px; /* Even narrower slider */
+  height: 3px; /* Even thinner slider track */
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.5); /* Higher contrast track */
+  border-radius: 3px;
+  outline: none;
+  margin: 0 2px;
+  cursor: pointer;
+  touch-action: manipulation; /* Prevent zooming on mobile */
+  align-self: center; /* Ensure vertical centering */
+  position: relative; /* For proper positioning */
+  top: 0; /* Ensure it's at the top of its container */
+  padding: 0; /* Remove any padding */
+  border: none; /* Remove any border */
+}
+
+.header-font-size-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px; /* Even smaller thumb */
+  height: 14px; /* Even smaller thumb */
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Thinner border */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Smaller shadow */
+  margin-top: -5.5px; /* Fine-tuned to align with the track */
+  position: relative; /* For proper positioning */
+  top: 0; /* Ensure it's at the top of the track */
+}
+
+.header-font-size-slider input[type="range"]::-moz-range-track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  position: relative;
+  top: 0;
+  border: none;
+  padding: 0;
+}
+
+.header-font-size-slider input[type="range"]::-moz-range-thumb {
+  width: 14px; /* Even smaller thumb */
+  height: 14px; /* Even smaller thumb */
+  border: 1px solid rgba(0, 0, 0, 0.2); /* Thinner border */
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Smaller shadow */
+  position: relative;
+  top: -5.5px; /* Fine-tuned to align with track */
+  margin: 0;
+  padding: 0;
+}
+
+.header-font-size-slider input[type="range"]::-webkit-slider-thumb:hover {
+  background: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.header-font-size-slider input[type="range"]::-moz-range-thumb:hover {
+  background: #f0f0f0;
+  transform: scale(1.1);
+}
+
+/* Active state for better touch feedback */
+.header-font-size-slider input[type="range"]::-webkit-slider-thumb:active {
+  background: #e0e0e0;
+  transform: scale(1.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.header-font-size-slider input[type="range"]::-moz-range-thumb:active {
+  background: #e0e0e0;
+  transform: scale(1.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+  .tab-button {
+    padding: 0 0.5rem;
+    min-width: 60px;
+    font-size: 0.85rem;
+    gap: 6px; /* Reduced gap on mobile */
+  }
+
+  .tab-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .header-controls {
+    gap: 0.4rem;
+  }
+
+  .settings-button {
+    padding: 0.4rem;
+  }
+
+  /* For very small screens, prioritize the icon */
+  @media (max-width: 360px) {
+    .tab-text {
+      font-size: 0.8rem;
+    }
+  }
+}

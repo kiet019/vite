@@ -1,0 +1,15 @@
+{
+  "name": "language-chatbot-server",
+  "version": "1.0.0",
+  "description": "Server for language-chatbot",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.7.4",
+    "cors": "^2.8.5"
+  }
+}

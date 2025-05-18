@@ -1,0 +1,136 @@
+/* Simplified mic button styles */
+.chat-input {
+  display: flex;
+  padding: 0.5rem 0.75rem; /* Reduced padding */
+  background-color: #2c2c2c;
+  border-top: 2px solid #333;
+  align-items: center;
+  gap: 0.5rem; /* Reduced spacing */
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem; /* Further reduced gap */
+  justify-content: flex-end;
+  min-width: 130px; /* Ensure minimum width for button container */
+  flex-shrink: 0; /* Prevent container from shrinking */
+}
+
+.voice-recorder {
+  display: flex;
+  align-items: center;
+}
+
+/* Button container styles */
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  justify-content: flex-end;
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+/* Mic button with rectangular design */
+.mic-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* Match send button spacing */
+  padding: 0.4rem 0.8rem; /* Match send button padding */
+  border-radius: 8px; /* Consistent rounded corners */
+  background-color: #4a5568; /* Match send button color */
+  border: none;
+  color: white; /* Match send button text color */
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600; /* Bolder text */
+  font-size: 0.9rem; /* Smaller font size */
+  width: 70px; /* Same width as send button for equal clickability */
+  height: 38px; /* Match send button height */
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.mic-button:hover:not(:disabled) {
+  background-color: #5a6578; /* Match send button hover */
+  color: #fff;
+  transform: translateY(-1px); /* Slight lift effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.mic-button:active:not(:disabled) {
+  transform: translateY(0); /* Press effect */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Reduced shadow when pressed */
+}
+
+.mic-button:disabled {
+  background-color: #3a3a3a; /* Match send button disabled */
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none; /* No shadow when disabled */
+  opacity: 0.7; /* Slightly transparent when disabled */
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+  .chat-input {
+    padding: 0.4rem 0.5rem; /* Further reduced padding for mobile */
+  }
+
+  .button-container {
+    min-width: 130px; /* Ensure enough space for both equal-width buttons */
+    gap: 0.3rem; /* Reduced gap on mobile */
+  }
+
+  .send-button,
+  .mic-button {
+    padding: 0.3rem 0.6rem; /* Reduced padding on mobile */
+    width: 60px; /* Same width for both buttons on mobile */
+    height: 36px; /* Slightly shorter on mobile */
+    font-size: 0.85rem; /* Smaller font on mobile */
+  }
+
+  .send-button .button-text {
+    display: none; /* Hide text on mobile to save space */
+  }
+
+  .mic-button.recording {
+    width: 80px; /* Wider for recording but consistent with desktop ratio */
+    padding: 0.3rem 0.6rem;
+  }
+
+  .recording-time-small {
+    font-size: 0.7rem; /* Smaller font on mobile */
+  }
+
+  .mic-text {
+    display: none;
+  }
+
+  .chat-input input, .chat-input .chat-textarea {
+    max-width: calc(100% - 140px); /* Adjusted for mobile with wider buttons */
+  }
+}
+
+/* Textarea specific styles */
+.chat-textarea {
+  resize: none; /* Prevent manual resizing */
+  overflow-y: hidden; /* Hide scrollbar by default */
+  line-height: 1.5; /* Improve line spacing */
+  max-height: 120px; /* Increased maximum height */
+  min-height: 42px; /* Increased minimum height to reduce need for scrollbar */
+  font-family: inherit; /* Use the same font as the rest of the app */
+  padding-top: 0.7rem; /* Increased top padding for better text positioning */
+  padding-bottom: 0.7rem; /* Increased bottom padding for better text positioning */
+}
+
+/* Only show scrollbar when content exceeds two lines */
+.chat-textarea.multiline {
+  overflow-y: auto; /* Show scrollbar only for multiline content */
+}

@@ -1,0 +1,177 @@
+/* Chat UI Component Styles */
+
+/* Translation Chatbot Styles */
+.translation-chatbot {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: #1a1a1a;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  position: relative;
+  /* Fix for mobile browsers */
+  min-height: 0;
+  flex: 1;
+  touch-action: manipulation; /* Improve touch handling */
+}
+
+.translation-chatbot h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.settings-button {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0.3rem; /* Reduced padding */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  height: 36px; /* Fixed height to fit in header */
+  width: 36px; /* Fixed width to maintain aspect ratio */
+}
+
+.settings-button:hover {
+  background-color: #3a3a3a;
+  color: #fff;
+}
+
+.description {
+  text-align: center;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+  border-bottom: 1px solid #333;
+}
+
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  height: 0; /* This forces the flex item to respect the parent's dimensions */
+  padding-bottom: calc(1rem + 60px); /* Add extra padding at the bottom to prevent content from being hidden behind the input */
+  overscroll-behavior-y: contain; /* Prevent pull-to-refresh on mobile browsers */
+  -webkit-overscroll-behavior-y: contain;
+  will-change: transform; /* Optimize for hardware acceleration */
+  transform: translateZ(0); /* Force hardware acceleration */
+  -webkit-transform: translateZ(0);
+}
+
+.empty-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #666;
+  font-style: italic;
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-message {
+  max-width: 85%;
+  padding: 0.8rem 1rem; /* Adjusted padding for mobile */
+  border-radius: var(--border-radius);
+  word-break: break-word;
+  margin-bottom: 0.8rem; /* Adjusted spacing between messages */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for better visibility */
+  hyphens: auto; /* Enable hyphenation for better text wrapping */
+  -webkit-hyphens: auto;
+  line-height: 1.5;
+  position: relative; /* For positioning the copy button */
+}
+
+.message-content {
+  font-size: var(--chat-font-size);
+}
+
+/* Copy button for bot messages */
+.copy-message-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.bot-message:hover .copy-message-button {
+  opacity: 1; /* Show on hover */
+}
+
+.copy-message-button:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.copy-message-button.copied {
+  background-color: #10b981; /* Success green color */
+  color: white;
+  opacity: 1;
+}
+
+/* Light theme adjustments */
+.theme-light .copy-message-button {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.theme-light .copy-message-button:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #4a5568;
+  color: white;
+  border-bottom-right-radius: 4px;
+  font-size: 1.1rem; /* Increased fixed font size for user messages */
+  font-weight: 500; /* Slightly bolder for better readability */
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #2d3748;
+  color: white;
+  border-bottom-left-radius: 4px;
+  font-weight: 500; /* Slightly bolder for better readability */
+  line-height: 1.6; /* Increased line height for better readability */
+}
+
+.error-message {
+  padding: 0.5rem 1rem;
+  background-color: rgba(220, 38, 38, 0.2);
+  color: #f87171;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Loading indicator moved to status-indicator.css */

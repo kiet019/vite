@@ -1,0 +1,257 @@
+/* Theme CSS for light/dark mode */
+
+/* Light Theme */
+.theme-light {
+  --bg-color: #ffffff;
+  --text-color: #213547;
+  --chatbot-bg: #f5f5f5;
+  --header-bg: #3b82f6;
+  --header-text: #ffffff;
+  --description-color: #666;
+  --border-color: #ddd;
+  --input-bg: #ffffff;
+  --input-border: #ccc;
+  --input-text: #333;
+  --button-bg: #2563eb;
+  --button-hover: #1d4ed8;
+  --button-text: #ffffff;
+  --mic-button-bg: #2563eb;
+  --mic-button-hover: #1d4ed8;
+  --user-message-bg: #3b82f6;
+  --user-message-text: #ffffff;
+  --bot-message-bg: #e5e7eb;
+  --bot-message-text: #333;
+  --settings-overlay-bg: rgba(0, 0, 0, 0.5);
+  --settings-panel-bg: #ffffff;
+  --settings-text: #333;
+  --settings-label: #555;
+  --settings-input-bg: #f9f9f9;
+  --settings-input-border: #ccc;
+  --settings-cancel-bg: transparent;
+  --settings-cancel-border: #ccc;
+  --settings-cancel-text: #555;
+  --settings-save-bg: #3b82f6;
+  --settings-save-text: #ffffff;
+  --error-bg: rgba(220, 38, 38, 0.1);
+  --error-text: #dc2626;
+  --link-color: #2563eb;
+  --link-hover: #1d4ed8;
+  --empty-chat-color: #999;
+  --loading-color: #666;
+  --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme */
+.theme-dark {
+  --bg-color: #242424;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --chatbot-bg: #1a1a1a;
+  --header-bg: #2c2c2c;
+  --header-text: #ffffff;
+  --description-color: #aaa;
+  --border-color: #333;
+  --input-bg: #333;
+  --input-border: #444;
+  --input-text: #fff;
+  --button-bg: #4a5568;
+  --button-hover: #5a6578;
+  --button-text: #ffffff;
+  --mic-button-bg: #4a5568;
+  --mic-button-hover: #5a6578;
+  --user-message-bg: #4a5568;
+  --user-message-text: #ffffff;
+  --bot-message-bg: #2d3748;
+  --bot-message-text: #ffffff;
+  --settings-overlay-bg: rgba(0, 0, 0, 0.7);
+  --settings-panel-bg: #2c2c2c;
+  --settings-text: #ffffff;
+  --settings-label: #ddd;
+  --settings-input-bg: #333;
+  --settings-input-border: #444;
+  --settings-cancel-bg: transparent;
+  --settings-cancel-border: #555;
+  --settings-cancel-text: #ddd;
+  --settings-save-bg: #4a5568;
+  --settings-save-text: #ffffff;
+  --error-bg: rgba(220, 38, 38, 0.2);
+  --error-text: #f87171;
+  --link-color: #4a9eff;
+  --link-hover: #60a5fa;
+  --empty-chat-color: #666;
+  --loading-color: #aaa;
+  --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Apply theme variables to elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.translation-chatbot {
+  background-color: var(--chatbot-bg);
+  box-shadow: var(--box-shadow);
+}
+
+.chatbot-header {
+  background-color: var(--header-bg);
+}
+
+.translation-chatbot h1 {
+  color: var(--header-text);
+}
+
+.settings-button {
+  color: var(--header-text);
+  opacity: 0.8;
+}
+
+.settings-button:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.description {
+  color: var(--description-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.empty-chat {
+  color: var(--empty-chat-color);
+}
+
+.user-message {
+  background-color: var(--user-message-bg);
+  color: var(--user-message-text);
+}
+
+.bot-message {
+  background-color: var(--bot-message-bg);
+  color: var(--bot-message-text);
+}
+
+.chat-input {
+  background-color: var(--header-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Overrides for light theme */
+.theme-light .chat-input {
+  background-color: #f0f4ff;
+  border-top: 1px solid #d1d5db;
+}
+
+.theme-light .chat-input .chat-textarea {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #333333;
+}
+
+.theme-light .unified-header {
+  background-color: #3b82f6;
+  border-bottom: 1px solid #2563eb;
+}
+
+.theme-light .tab-button {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.theme-light .tab-button:hover,
+.theme-light .tab-button.active {
+  color: #ffffff;
+}
+
+.theme-light .tab-button.active::after {
+  background-color: #ffffff;
+}
+
+.theme-light .meta-seo-generator h2 {
+  color: #213547; /* Match text-color from light theme */
+}
+
+/* Fix for send and mic buttons in disabled state in light theme */
+.theme-light .send-button:disabled,
+.theme-light .mic-button:disabled {
+  background-color: #d1d5db; /* Light gray background */
+  color: #9ca3af; /* Medium gray text */
+  opacity: 0.8;
+}
+
+.chat-input input {
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+.chat-input button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.chat-input button:hover:not(:disabled) {
+  background-color: var(--button-hover);
+}
+
+.mic-button {
+  background-color: var(--mic-button-bg);
+  color: var(--button-text);
+}
+
+.mic-button:hover:not(:disabled) {
+  background-color: var(--mic-button-hover);
+}
+
+.settings-overlay {
+  background-color: var(--settings-overlay-bg);
+}
+
+.settings-panel {
+  background-color: var(--settings-panel-bg);
+  box-shadow: var(--box-shadow);
+}
+
+.settings-panel h2 {
+  color: var(--settings-text);
+}
+
+.settings-group label {
+  color: var(--settings-label);
+}
+
+.settings-group input,
+.settings-group select {
+  border: 1px solid var(--settings-input-border);
+  background-color: var(--settings-input-bg);
+  color: var(--input-text);
+}
+
+.api-key-help a {
+  color: var(--link-color);
+}
+
+.api-key-help a:hover {
+  color: var(--link-hover);
+}
+
+.cancel-button {
+  border: 1px solid var(--settings-cancel-border);
+  color: var(--settings-cancel-text);
+}
+
+.save-button {
+  background-color: var(--settings-save-bg);
+  color: var(--settings-save-text);
+}
+
+.save-button:hover {
+  background-color: var(--button-hover);
+}
+
+.error-message {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+}
+
+.loading-indicator {
+  color: var(--loading-color);
+}
